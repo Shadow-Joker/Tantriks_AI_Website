@@ -1,99 +1,138 @@
 import tantriksLogo from '../../assets/tantriks-hub-mark.svg';
+import { Mail, Phone } from 'lucide-react';
+import { Link } from '../../router/Link';
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#050609] py-16 text-slate-400 text-xs">
+    <footer className="border-t border-[#4D694E]/20 bg-[#F4E7C5] py-16 text-[#2B3E2C]/80 text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-16">
           {/* Brand & Mission Column */}
           <div className="col-span-2">
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-7 h-7 rounded-lg bg-[#0C1117] border border-emerald-500/30 flex items-center justify-center p-1 shadow-[0_0_12px_rgba(34,224,107,0.2)]">
+            <div className="flex items-center gap-2.5 mb-3">
+              <div className="w-7 h-7 rounded-lg bg-[#FFF3D5] border border-[#4D694E]/30 flex items-center justify-center p-1 shadow-sm">
                 <img
                   src={tantriksLogo}
                   alt="Tantriks AI Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span className="font-display font-bold text-white text-base tracking-tight">
+              <span className="font-display font-bold text-[#2B3E2C] text-base tracking-tight">
                 Tantriks AI
               </span>
             </div>
 
-            <p className="text-slate-400 leading-relaxed max-w-sm mb-6">
-              Autonomous orchestration engine for modern engineering teams. Turning complex multi-model pipelines into high-reliability software.
+            <p className="font-display italic text-[#4D694E] font-medium text-xs mb-3">
+              &ldquo;We don&apos;t just build AI &mdash; we craft magic.&rdquo;
             </p>
-            {/* Live Operational Status */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0E121B] border border-white/10 text-slate-300 font-mono text-[11px]">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>All Systems Operational (99.99%)</span>
+
+            <p className="text-[#2B3E2C]/80 leading-relaxed max-w-sm mb-6">
+              Custom AI, intelligent automation, agents, and enterprise software built around your business.
+            </p>
+
+            {/* Direct Contact Links */}
+            <div className="space-y-2 font-mono text-[11px] text-[#2B3E2C]/80">
+              <div className="flex items-center gap-2">
+                <Mail className="w-3.5 h-3.5 text-[#4D694E]" />
+                <a href="mailto:tantriksai2026@gmail.com" className="hover:text-[#4D694E] transition-colors">
+                  tantriksai2026@gmail.com
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Phone className="w-3.5 h-3.5 text-[#4D694E]" />
+                <a href="tel:+919123555456" className="hover:text-[#4D694E] transition-colors">
+                  +91 9123555456
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Product Links */}
+          {/* Solutions Column */}
           <div>
-            <div className="text-white font-semibold font-display text-sm mb-4">Product</div>
+            <div className="text-[#2B3E2C] font-bold font-display text-sm mb-4">Solutions</div>
             <ul className="space-y-2.5">
-              {['Neural Router', 'Vector Fabric', 'Agent Swarm', 'Edge Mesh', 'Observability'].map(
-                (item) => (
-                  <li key={item}>
-                    <a href="#platform" className="hover:text-cyan-300 transition-colors">
-                      {item}
-                    </a>
-                  </li>
-                )
-              )}
+              {[
+                { name: 'AI Assistants', href: '/#services' },
+                { name: 'AI Agents', href: '/#services' },
+                { name: 'Automation', href: '/#services' },
+                { name: 'Enterprise Software', href: '/#services' },
+                { name: 'Document Understanding', href: '/#services' },
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link href={item.href} className="hover:text-[#4D694E] transition-colors">
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Resources Links */}
+          {/* Company Column */}
           <div>
-            <div className="text-white font-semibold font-display text-sm mb-4">Resources</div>
+            <div className="text-[#2B3E2C] font-bold font-display text-sm mb-4">Company</div>
             <ul className="space-y-2.5">
-              {['Documentation', 'API Reference', 'SDK Downloads', 'Architectural Guide', 'Changelog'].map(
-                (item) => (
-                  <li key={item}>
-                    <a href="#demo" className="hover:text-cyan-300 transition-colors">
-                      {item}
-                    </a>
-                  </li>
-                )
-              )}
+              {[
+                { name: 'About', href: '/#about' },
+                { name: 'Mission', href: '/#why-us' },
+                { name: 'Vision', href: '/#why-us' },
+                { name: 'Contact', href: '/#contact' },
+                { name: 'Support', href: '/support' },
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link href={item.href} className="hover:text-[#4D694E] transition-colors">
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Company & Legal */}
+          {/* Resources Column */}
           <div>
-            <div className="text-white font-semibold font-display text-sm mb-4">Company</div>
+            <div className="text-[#2B3E2C] font-bold font-display text-sm mb-4">Resources</div>
             <ul className="space-y-2.5">
-              {['About', 'Security (SOC2)', 'Privacy Policy', 'Terms of Service', 'Contact'].map(
-                (item) => (
-                  <li key={item}>
-                    <a href="#" className="hover:text-cyan-300 transition-colors">
-                      {item}
-                    </a>
-                  </li>
-                )
-              )}
+              {[
+                { name: 'Services', href: '/#services' },
+                { name: 'Industries', href: '/#industries' },
+                { name: 'Solutions', href: '/#services' },
+                { name: 'Support Center', href: '/support' },
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link href={item.href} className="hover:text-[#4D694E] transition-colors">
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal Column */}
+          <div>
+            <div className="text-[#2B3E2C] font-bold font-display text-sm mb-4">Legal</div>
+            <ul className="space-y-2.5">
+              {[
+                { name: 'Privacy Policy', href: '/privacy-policy' },
+                { name: 'Terms & Conditions', href: '/terms-and-conditions' },
+                { name: 'Cookie Preferences', href: '/cookie-preferences' },
+                { name: 'Refund & Cancellation', href: '/refund-cancellation' },
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link href={item.href} className="hover:text-[#4D694E] transition-colors">
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 font-mono text-[11px]">
+        <div className="pt-8 border-t border-[#4D694E]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-[#2B3E2C]/70 font-mono text-[11px]">
           <div>
-            (c) {new Date().getFullYear()} Tantriks AI Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} Tantriks AI. All rights reserved.
           </div>
-          <div className="flex items-center gap-6">
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
-              GitHub
-            </a>
-            <a href="https://x.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
-              X / Twitter
-            </a>
-            <a href="https://discord.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
-              Discord
-            </a>
+          <div className="text-[#2B3E2C]/80">
+            Intelligent software, automation, and AI agents.
           </div>
         </div>
       </div>

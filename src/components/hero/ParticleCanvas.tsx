@@ -89,9 +89,9 @@ export function ParticleCanvas() {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < 110) {
-            const lineAlpha = (1 - dist / 110) * 0.14;
+            const lineAlpha = (1 - dist / 110) * 0.16;
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(0, 242, 254, ${lineAlpha})`;
+            ctx.strokeStyle = `rgba(77, 105, 78, ${lineAlpha * 1.5})`;
             ctx.lineWidth = 0.75;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -129,12 +129,13 @@ export function ParticleCanvas() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 242, 254, ${p.alpha})`;
-        ctx.shadowColor = '#00F2FE';
-        ctx.shadowBlur = 6;
+        ctx.fillStyle = `rgba(43, 62, 44, ${p.alpha * 1.2})`;
+        ctx.shadowColor = '#4D694E';
+        ctx.shadowBlur = 4;
         ctx.fill();
         ctx.shadowBlur = 0;
       }
+
 
       animationFrameId = requestAnimationFrame(render);
     };

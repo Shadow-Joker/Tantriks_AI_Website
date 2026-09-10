@@ -4,7 +4,6 @@ import {
   Layers,
   Cpu,
   Activity,
-  CircleDot,
   CheckCircle,
   Database,
   TrendingUp,
@@ -15,7 +14,6 @@ export function ProductRevealStudio() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const prefersReduced = useReducedMotion();
   const [activeTab, setActiveTab] = useState<'pipeline' | 'swarm' | 'telemetry'>('pipeline');
-  const [activeAgentIndex, setActiveAgentIndex] = useState(1);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -29,18 +27,21 @@ export function ProductRevealStudio() {
 
   return (
     <section
-      id="platform"
+      id="services"
       ref={containerRef}
-      className="relative py-24 md:py-36 overflow-hidden border-t border-white/5"
+      className="relative py-24 md:py-36 overflow-hidden border-t border-[#4D694E]/15"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header (No eyebrow per eyebrow restraint rule) */}
+        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold font-display tracking-tight text-white mb-6">
-            The Autonomous SaaS Studio.
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#4D694E]/10 border border-[#4D694E]/30 text-[#2B3E2C] font-semibold text-xs font-mono uppercase tracking-widest mb-4">
+            Our Capabilities
+          </div>
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold font-display tracking-tight text-[#2B3E2C] mb-6">
+            What We Build
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-[65ch] mx-auto">
-            Experience complete control over distributed AI swarms, real-time memory fabrics, and edge deployment pipelines in one integrated workspace.
+          <p className="text-base sm:text-lg text-[#2B3E2C]/85 leading-relaxed max-w-[65ch] mx-auto">
+            From intelligent assistants to enterprise-grade automation, we build AI systems designed for real-world impact.
           </p>
         </div>
 
@@ -52,162 +53,166 @@ export function ProductRevealStudio() {
             rotateX: prefersReduced ? 0 : rotateX,
             transformPerspective: 1400,
           }}
-          className="relative rounded-3xl overflow-hidden glass-panel-elevated border border-white/15 shadow-[0_40px_100px_rgba(0,0,0,0.9)]"
+          className="relative rounded-3xl overflow-hidden glass-panel-elevated border border-[#4D694E]/25 shadow-[0_40px_100px_rgba(43,62,44,0.12)]"
         >
           {/* Studio Chrome Header */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 px-6 py-4 bg-[#0A0D15]/95 border-b border-white/10">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 px-6 py-4 bg-[#F4E7C5]/95 border-b border-[#4D694E]/20">
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-full bg-rose-500/80" />
+                <span className="w-3 h-3 rounded-full bg-red-500/80" />
                 <span className="w-3 h-3 rounded-full bg-amber-500/80" />
-                <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
+                <span className="w-3 h-3 rounded-full bg-[#4D694E]" />
               </div>
-              <div className="h-4 w-px bg-white/10 mx-1" />
-              <span className="text-xs font-mono font-medium text-slate-300">
-                tantriks-studio // prod-mesh-alpha-09
+              <div className="h-4 w-px bg-[#4D694E]/20 mx-1" />
+              <span className="text-xs font-mono font-medium text-[#2B3E2C]/85">
+                tantriks-ai // solutions-matrix // 12-services
               </span>
             </div>
 
             {/* Studio Navigation Tabs */}
-            <div className="flex items-center gap-1.5 p-1 rounded-xl bg-[#121622] border border-white/5 self-start sm:self-auto">
+            <div className="flex items-center gap-1.5 p-1 rounded-xl bg-[#FFF3D5] border border-[#4D694E]/20 self-start sm:self-auto">
               <button
                 onClick={() => setActiveTab('pipeline')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                   activeTab === 'pipeline'
-                    ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-sm'
-                    : 'text-slate-400 hover:text-white'
+                    ? 'bg-[#4D694E] text-[#FFF3D5] shadow-sm font-bold'
+                    : 'text-[#2B3E2C]/75 hover:text-[#2B3E2C]'
                 }`}
               >
-                <Layers className="w-3.5 h-3.5" />
-                <span>Pipeline Mesh</span>
+                <Cpu className="w-3.5 h-3.5" />
+                <span>AI Assistants</span>
               </button>
 
               <button
                 onClick={() => setActiveTab('swarm')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                   activeTab === 'swarm'
-                    ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-sm'
-                    : 'text-slate-400 hover:text-white'
+                    ? 'bg-[#4D694E] text-[#FFF3D5] shadow-sm font-bold'
+                    : 'text-[#2B3E2C]/75 hover:text-[#2B3E2C]'
                 }`}
               >
-                <Cpu className="w-3.5 h-3.5" />
-                <span>Agent Swarm</span>
+                <Layers className="w-3.5 h-3.5" />
+                <span>Workflow Automation</span>
               </button>
 
               <button
                 onClick={() => setActiveTab('telemetry')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                   activeTab === 'telemetry'
-                    ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-sm'
-                    : 'text-slate-400 hover:text-white'
+                    ? 'bg-[#4D694E] text-[#FFF3D5] shadow-sm font-bold'
+                    : 'text-[#2B3E2C]/75 hover:text-[#2B3E2C]'
                 }`}
               >
                 <Activity className="w-3.5 h-3.5" />
-                <span>Live Telemetry</span>
+                <span>Enterprise Systems</span>
               </button>
             </div>
           </div>
 
           {/* Studio Body */}
-          <div className="p-6 md:p-8 bg-gradient-to-b from-[#090C14] to-[#06080D]">
+          <div className="p-6 md:p-8 bg-gradient-to-b from-[#FFF3D5] to-[#F4E7C5]">
             {activeTab === 'pipeline' && (
               <div className="space-y-6">
-                {/* Visual Pipeline Graph */}
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
-                  {/* Step 1 */}
-                  <div className="p-4 rounded-xl bg-[#0F131F]/90 border border-white/10 hover:border-cyan-500/40 transition-colors">
-                    <div className="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2">
-                      <span>01. INGRESS</span>
-                      <span className="text-cyan-400 font-semibold">Active</span>
+                {/* Visual Services Grid: Group 1 */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative">
+                  {/* Service 1 */}
+                  <div className="p-4 rounded-xl bg-[#FFF3D5] border border-[#4D694E]/25 hover:border-[#4D694E]/45 transition-colors shadow-sm flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between text-[11px] font-mono text-[#4D694E] font-bold mb-2">
+                        <span>SERVICE 01</span>
+                        <span className="text-[#2B3E2C]/70">Voice AI</span>
+                      </div>
+                      <div className="text-sm font-bold text-[#2B3E2C]">AI Receptionists &amp; Voice Assistants</div>
+                      <div className="mt-2 text-xs text-[#2B3E2C]/80 leading-relaxed">
+                        Intelligent voice-based assistants that can communicate with customers, handle inquiries, collect information, and automate routine conversations.
+                      </div>
                     </div>
-                    <div className="text-sm font-semibold text-white">Semantic Parser</div>
-                    <div className="mt-3 text-xs text-slate-400">
-                      Tokenizes incoming query and indexes against hybrid memory vectors.
-                    </div>
-                    <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-slate-500">
-                      <span>Throughput</span>
-                      <span className="text-slate-200">18.4k req/s</span>
-                    </div>
-                  </div>
-
-                  {/* Step 2 */}
-                  <div className="p-4 rounded-xl bg-cyan-950/20 border border-cyan-500/40 shadow-[0_0_20px_rgba(0,242,254,0.1)]">
-                    <div className="flex items-center justify-between text-[11px] font-mono text-cyan-300 mb-2">
-                      <span>02. REASONING</span>
-                      <span className="text-emerald-400 font-semibold">Streaming</span>
-                    </div>
-                    <div className="text-sm font-semibold text-white">Speculative Swarm</div>
-                    <div className="mt-3 text-xs text-slate-300">
-                      Runs 4 parallel inference branches with tree-of-thought pruning.
-                    </div>
-                    <div className="mt-4 pt-3 border-t border-cyan-500/20 flex items-center justify-between text-[10px] font-mono text-cyan-300">
-                      <span>Latency</span>
-                      <span className="text-emerald-400">4.2ms</span>
+                    <div className="mt-4 pt-3 border-t border-[#4D694E]/15 text-[10px] font-mono text-[#4D694E] font-semibold">
+                      Natural Conversational Flow
                     </div>
                   </div>
 
-                  {/* Step 3 */}
-                  <div className="p-4 rounded-xl bg-[#0F131F]/90 border border-white/10 hover:border-cyan-500/40 transition-colors">
-                    <div className="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2">
-                      <span>03. VERIFY</span>
-                      <span className="text-slate-400 font-semibold">Ready</span>
+                  {/* Service 2 */}
+                  <div className="p-4 rounded-xl bg-[#4D694E]/10 border border-[#4D694E]/40 shadow-sm flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between text-[11px] font-mono text-[#4D694E] font-bold mb-2">
+                        <span>SERVICE 02</span>
+                        <span className="text-[#2B3E2C]/70">Conversational</span>
+                      </div>
+                      <div className="text-sm font-bold text-[#2B3E2C]">AI Chatbots</div>
+                      <div className="mt-2 text-xs text-[#2B3E2C]/80 leading-relaxed">
+                        Custom conversational AI experiences designed around your business, knowledge base, customers, and workflows.
+                      </div>
                     </div>
-                    <div className="text-sm font-semibold text-white">Guardrail Filter</div>
-                    <div className="mt-3 text-xs text-slate-400">
-                      Hardware-enforced hallucination checks and strict enterprise policy guards.
-                    </div>
-                    <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-slate-500">
-                      <span>Accuracy</span>
-                      <span className="text-slate-200">99.98%</span>
+                    <div className="mt-4 pt-3 border-t border-[#4D694E]/20 text-[10px] font-mono text-[#4D694E] font-semibold">
+                      Knowledge-Trained Logic
                     </div>
                   </div>
 
-                  {/* Step 4 */}
-                  <div className="p-4 rounded-xl bg-[#0F131F]/90 border border-white/10 hover:border-cyan-500/40 transition-colors">
-                    <div className="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2">
-                      <span>04. EGRESS</span>
-                      <span className="text-emerald-400 font-semibold">Edge</span>
+                  {/* Service 3 */}
+                  <div className="p-4 rounded-xl bg-[#FFF3D5] border border-[#4D694E]/25 hover:border-[#4D694E]/45 transition-colors shadow-sm flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between text-[11px] font-mono text-[#4D694E] font-bold mb-2">
+                        <span>SERVICE 03</span>
+                        <span className="text-[#2B3E2C]/70">Agriculture</span>
+                      </div>
+                      <div className="text-sm font-bold text-[#2B3E2C]">AI Farmers Helpline</div>
+                      <div className="mt-2 text-xs text-[#2B3E2C]/80 leading-relaxed">
+                        Intelligent agricultural assistance that helps farmers access useful information and support through AI-powered interactions.
+                      </div>
                     </div>
-                    <div className="text-sm font-semibold text-white">Edge Push Stream</div>
-                    <div className="mt-3 text-xs text-slate-400">
-                      Direct TCP streaming back to user application with zero intermediate buffering.
+                    <div className="mt-4 pt-3 border-t border-[#4D694E]/15 text-[10px] font-mono text-[#4D694E] font-semibold">
+                      Accessible Knowledge
                     </div>
-                    <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-slate-500">
-                      <span>Global PoPs</span>
-                      <span className="text-slate-200">240 active</span>
+                  </div>
+
+                  {/* Service 4 */}
+                  <div className="p-4 rounded-xl bg-[#FFF3D5] border border-[#4D694E]/25 hover:border-[#4D694E]/45 transition-colors shadow-sm flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between text-[11px] font-mono text-[#4D694E] font-bold mb-2">
+                        <span>SERVICE 04</span>
+                        <span className="text-[#2B3E2C]/70">Personalized AI</span>
+                      </div>
+                      <div className="text-sm font-bold text-[#2B3E2C]">AI Hairstylist &amp; Dresser</div>
+                      <div className="mt-2 text-xs text-[#2B3E2C]/80 leading-relaxed">
+                        AI-powered experiences that help users explore hairstyles, dressing options, and personalized recommendations.
+                      </div>
+                    </div>
+                    <div className="mt-4 pt-3 border-t border-[#4D694E]/15 text-[10px] font-mono text-[#4D694E] font-semibold">
+                      Tailored Visual Suggestions
                     </div>
                   </div>
                 </div>
 
-                {/* Lower telemetry panel inside studio */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-white/5">
-                  <div className="p-4 rounded-xl bg-[#0B0E17] border border-white/5 flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
-                      <TrendingUp className="w-5 h-5" />
+                {/* Bottom capability highlights */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-[#4D694E]/20">
+                  <div className="p-4 rounded-xl bg-[#FFF3D5] border border-[#4D694E]/20 flex items-center gap-4 shadow-sm">
+                    <div className="w-10 h-10 rounded-lg bg-[#4D694E]/15 border border-[#4D694E]/30 flex items-center justify-center text-[#4D694E]">
+                      <Cpu className="w-5 h-5" />
                     </div>
                     <div>
-                      <div className="text-xs text-slate-400 font-mono">TOKEN THROUGHPUT</div>
-                      <div className="text-lg font-bold text-white font-mono">142,850 / sec</div>
+                      <div className="text-xs text-[#2B3E2C]/70 font-mono">HUMAN-CENTERED</div>
+                      <div className="text-sm font-bold text-[#2B3E2C]">Natural Voice &amp; Chat</div>
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-[#0B0E17] border border-white/5 flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                  <div className="p-4 rounded-xl bg-[#FFF3D5] border border-[#4D694E]/20 flex items-center gap-4 shadow-sm">
+                    <div className="w-10 h-10 rounded-lg bg-[#4D694E]/15 border border-[#4D694E]/30 flex items-center justify-center text-[#4D694E]">
                       <CheckCircle className="w-5 h-5" />
                     </div>
                     <div>
-                      <div className="text-xs text-slate-400 font-mono">EXECUTION CONSENSUS</div>
-                      <div className="text-lg font-bold text-emerald-400 font-mono">99.98% valid</div>
+                      <div className="text-xs text-[#2B3E2C]/70 font-mono">BUSINESS KNOWLEDGE</div>
+                      <div className="text-sm font-bold text-[#4D694E]">Tailored to Your Operations</div>
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-[#0B0E17] border border-white/5 flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+                  <div className="p-4 rounded-xl bg-[#FFF3D5] border border-[#4D694E]/20 flex items-center gap-4 shadow-sm">
+                    <div className="w-10 h-10 rounded-lg bg-[#4D694E]/15 border border-[#4D694E]/30 flex items-center justify-center text-[#4D694E]">
                       <Database className="w-5 h-5" />
                     </div>
                     <div>
-                      <div className="text-xs text-slate-400 font-mono">MEMORY CACHE HIT</div>
-                      <div className="text-lg font-bold text-white font-mono">94.2% hit rate</div>
+                      <div className="text-xs text-[#2B3E2C]/70 font-mono">24/7 AVAILABILITY</div>
+                      <div className="text-sm font-bold text-[#2B3E2C]">Always-On Assistance</div>
                     </div>
                   </div>
                 </div>
@@ -215,59 +220,213 @@ export function ProductRevealStudio() {
             )}
 
             {activeTab === 'swarm' && (
-              <div className="space-y-4">
-                <div className="text-xs font-mono text-slate-400 mb-2">
-                  AUTONOMOUS AGENT COLLABORATION LANES
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                  {[
-                    { role: 'Planner Agent', model: 'tantriks-reason-v4', state: 'Consensus Leader', tok: '3.4k' },
-                    { role: 'Code Synthesizer', model: 'deep-codegen-flash', state: 'Synthesizing Ast', tok: '9.2k' },
-                    { role: 'Security Auditor', model: 'policy-guard-hsm', state: 'Zero Vulnerabilities', tok: '1.1k' },
-                    { role: 'Edge Deployer', model: 'mesh-compiler-v2', state: 'Warm Deploy', tok: '0.6k' },
-                  ].map((agent, i) => (
-                    <div
-                      key={agent.role}
-                      onClick={() => setActiveAgentIndex(i)}
-                      className={`p-4 rounded-xl cursor-pointer transition-all ${
-                        activeAgentIndex === i
-                          ? 'bg-cyan-950/30 border border-cyan-500/50 shadow-[0_0_20px_rgba(0,242,254,0.15)]'
-                          : 'bg-[#0E121E]/80 border border-white/10 hover:border-white/20'
-                      }`}
-                    >
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-[10px] font-mono text-cyan-300">AGENT 0{i + 1}</span>
-                        <CircleDot className="w-3 h-3 text-emerald-400 animate-pulse" />
+              <div className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {/* Service 5 */}
+                  <div className="p-4 rounded-xl bg-[#FFF3D5] border border-[#4D694E]/25 hover:border-[#4D694E]/45 transition-colors shadow-sm flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between text-[11px] font-mono text-[#4D694E] font-bold mb-2">
+                        <span>SERVICE 05</span>
+                        <span className="text-[#2B3E2C]/70">Operations</span>
                       </div>
-                      <div className="text-sm font-semibold text-white">{agent.role}</div>
-                      <div className="mt-2 text-[11px] font-mono text-slate-400">{agent.model}</div>
-                      <div className="mt-3 text-[10px] font-mono text-slate-300 bg-[#06080D] px-2 py-1 rounded flex justify-between">
-                        <span>{agent.state}</span>
-                        <span className="text-cyan-400">{agent.tok} tok</span>
+                      <div className="text-sm font-bold text-[#2B3E2C]">Verification Call Automation</div>
+                      <div className="mt-2 text-xs text-[#2B3E2C]/80 leading-relaxed">
+                        Automated verification and calling workflows that reduce manual effort and streamline operational processes.
                       </div>
                     </div>
-                  ))}
+                    <div className="mt-4 pt-3 border-t border-[#4D694E]/15 text-[10px] font-mono text-[#4D694E] font-semibold">
+                      Automated Calling Workflows
+                    </div>
+                  </div>
+
+                  {/* Service 6 */}
+                  <div className="p-4 rounded-xl bg-[#FFF3D5] border border-[#4D694E]/25 hover:border-[#4D694E]/45 transition-colors shadow-sm flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between text-[11px] font-mono text-[#4D694E] font-bold mb-2">
+                        <span>SERVICE 06</span>
+                        <span className="text-[#2B3E2C]/70">Growth</span>
+                      </div>
+                      <div className="text-sm font-bold text-[#2B3E2C]">Lead Generation</div>
+                      <div className="mt-2 text-xs text-[#2B3E2C]/80 leading-relaxed">
+                        AI-powered systems designed to identify, qualify, organize, and manage potential leads more efficiently.
+                      </div>
+                    </div>
+                    <div className="mt-4 pt-3 border-t border-[#4D694E]/15 text-[10px] font-mono text-[#4D694E] font-semibold">
+                      Qualified Lead Pipeline
+                    </div>
+                  </div>
+
+                  {/* Service 7 */}
+                  <div className="p-4 rounded-xl bg-[#FFF3D5] border border-[#4D694E]/25 hover:border-[#4D694E]/45 transition-colors shadow-sm flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between text-[11px] font-mono text-[#4D694E] font-bold mb-2">
+                        <span>SERVICE 07</span>
+                        <span className="text-[#2B3E2C]/70">Commerce</span>
+                      </div>
+                      <div className="text-sm font-bold text-[#2B3E2C]">E-commerce Assistants</div>
+                      <div className="mt-2 text-xs text-[#2B3E2C]/80 leading-relaxed">
+                        Intelligent shopping assistants that help customers discover products, answer questions, and navigate the buying journey.
+                      </div>
+                    </div>
+                    <div className="mt-4 pt-3 border-t border-[#4D694E]/15 text-[10px] font-mono text-[#4D694E] font-semibold">
+                      Buying Journey Support
+                    </div>
+                  </div>
+
+                  {/* Service 8 */}
+                  <div className="p-4 rounded-xl bg-[#4D694E]/10 border border-[#4D694E]/40 shadow-sm flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between text-[11px] font-mono text-[#4D694E] font-bold mb-2">
+                        <span>SERVICE 08</span>
+                        <span className="text-[#2B3E2C]/70">Automation</span>
+                      </div>
+                      <div className="text-sm font-bold text-[#2B3E2C]">n8n Workflow Automation</div>
+                      <div className="mt-2 text-xs text-[#2B3E2C]/80 leading-relaxed">
+                        Intelligent workflow automation connecting tools, services, APIs, and business processes into efficient automated systems.
+                      </div>
+                    </div>
+                    <div className="mt-4 pt-3 border-t border-[#4D694E]/20 text-[10px] font-mono text-[#4D694E] font-semibold">
+                      Connected APIs &amp; Tools
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-[#4D694E]/20">
+                  <div className="p-4 rounded-xl bg-[#FFF3D5] border border-[#4D694E]/20 flex items-center gap-4 shadow-sm">
+                    <div className="w-10 h-10 rounded-lg bg-[#4D694E]/15 border border-[#4D694E]/30 flex items-center justify-center text-[#4D694E]">
+                      <Layers className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="text-xs text-[#2B3E2C]/70 font-mono">N8N ARCHITECTURE</div>
+                      <div className="text-sm font-bold text-[#2B3E2C]">Unified Tooling Connectivity</div>
+                    </div>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-[#FFF3D5] border border-[#4D694E]/20 flex items-center gap-4 shadow-sm">
+                    <div className="w-10 h-10 rounded-lg bg-[#4D694E]/15 border border-[#4D694E]/30 flex items-center justify-center text-[#4D694E]">
+                      <CheckCircle className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="text-xs text-[#2B3E2C]/70 font-mono">REDUCE EFFORT</div>
+                      <div className="text-sm font-bold text-[#4D694E]">Zero Repetitive Work</div>
+                    </div>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-[#FFF3D5] border border-[#4D694E]/20 flex items-center gap-4 shadow-sm">
+                    <div className="w-10 h-10 rounded-lg bg-[#4D694E]/15 border border-[#4D694E]/30 flex items-center justify-center text-[#4D694E]">
+                      <TrendingUp className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="text-xs text-[#2B3E2C]/70 font-mono">OPERATIONAL SCALE</div>
+                      <div className="text-sm font-bold text-[#2B3E2C]">Streamlined Processes</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
 
             {activeTab === 'telemetry' && (
-              <div className="p-4 rounded-xl bg-[#06080D] border border-white/10 font-mono text-xs text-slate-300 space-y-2">
-                <div className="text-slate-500 flex justify-between border-b border-white/5 pb-2">
-                  <span>TIMESTAMP // TRACE ID</span>
-                  <span>STATUS</span>
+              <div className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {/* Service 9 */}
+                  <div className="p-4 rounded-xl bg-[#FFF3D5] border border-[#4D694E]/25 hover:border-[#4D694E]/45 transition-colors shadow-sm flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between text-[11px] font-mono text-[#4D694E] font-bold mb-2">
+                        <span>SERVICE 09</span>
+                        <span className="text-[#2B3E2C]/70">Documents</span>
+                      </div>
+                      <div className="text-sm font-bold text-[#2B3E2C]">Document Understanding</div>
+                      <div className="mt-2 text-xs text-[#2B3E2C]/80 leading-relaxed">
+                        AI systems that extract, understand, classify, and process information from complex business documents.
+                      </div>
+                    </div>
+                    <div className="mt-4 pt-3 border-t border-[#4D694E]/15 text-[10px] font-mono text-[#4D694E] font-semibold">
+                      Automated Data Extraction
+                    </div>
+                  </div>
+
+                  {/* Service 10 */}
+                  <div className="p-4 rounded-xl bg-[#FFF3D5] border border-[#4D694E]/25 hover:border-[#4D694E]/45 transition-colors shadow-sm flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between text-[11px] font-mono text-[#4D694E] font-bold mb-2">
+                        <span>SERVICE 10</span>
+                        <span className="text-[#2B3E2C]/70">Languages</span>
+                      </div>
+                      <div className="text-sm font-bold text-[#2B3E2C]">Translation</div>
+                      <div className="mt-2 text-xs text-[#2B3E2C]/80 leading-relaxed">
+                        AI-powered translation systems designed to make information and communication more accessible across languages.
+                      </div>
+                    </div>
+                    <div className="mt-4 pt-3 border-t border-[#4D694E]/15 text-[10px] font-mono text-[#4D694E] font-semibold">
+                      Cross-Language Access
+                    </div>
+                  </div>
+
+                  {/* Service 11 */}
+                  <div className="p-4 rounded-xl bg-[#4D694E]/10 border border-[#4D694E]/40 shadow-sm flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between text-[11px] font-mono text-[#4D694E] font-bold mb-2">
+                        <span>SERVICE 11</span>
+                        <span className="text-[#2B3E2C]/70">Autonomous</span>
+                      </div>
+                      <div className="text-sm font-bold text-[#2B3E2C]">Enterprise AI Agents</div>
+                      <div className="mt-2 text-xs text-[#2B3E2C]/80 leading-relaxed">
+                        Intelligent agents designed to perform specialized tasks, interact with business systems, and support complex organizational workflows.
+                      </div>
+                    </div>
+                    <div className="mt-4 pt-3 border-t border-[#4D694E]/20 text-[10px] font-mono text-[#4D694E] font-semibold">
+                      Specialized Task Support
+                    </div>
+                  </div>
+
+                  {/* Service 12 */}
+                  <div className="p-4 rounded-xl bg-[#FFF3D5] border border-[#4D694E]/25 hover:border-[#4D694E]/45 transition-colors shadow-sm flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between text-[11px] font-mono text-[#4D694E] font-bold mb-2">
+                        <span>SERVICE 12</span>
+                        <span className="text-[#2B3E2C]/70">Engineering</span>
+                      </div>
+                      <div className="text-sm font-bold text-[#2B3E2C]">Enterprise Software</div>
+                      <div className="mt-2 text-xs text-[#2B3E2C]/80 leading-relaxed">
+                        Scalable custom software engineered around your organization&apos;s specific operational requirements.
+                      </div>
+                    </div>
+                    <div className="mt-4 pt-3 border-t border-[#4D694E]/15 text-[10px] font-mono text-[#4D694E] font-semibold">
+                      Custom Operational Scale
+                    </div>
+                  </div>
                 </div>
-                <div className="text-emerald-400">
-                  [20:46:12.802] INGRESS: POST /v1/orchestration/dispatch -&gt; 200 OK (1.2ms)
-                </div>
-                <div className="text-cyan-300">
-                  [20:46:12.804] SWARM: Speculative branch consensus validated by 4/4 nodes.
-                </div>
-                <div className="text-slate-300">
-                  [20:46:12.806] MEMORY: Vector index hit #emb-9942 (distance: 0.012).
-                </div>
-                <div className="text-emerald-400">
-                  [20:46:12.808] EGRESS: Stream routed to 240 global edge POPs. TTFB: 4.1ms.
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-[#4D694E]/20">
+                  <div className="p-4 rounded-xl bg-[#FFF3D5] border border-[#4D694E]/20 flex items-center gap-4 shadow-sm">
+                    <div className="w-10 h-10 rounded-lg bg-[#4D694E]/15 border border-[#4D694E]/30 flex items-center justify-center text-[#4D694E]">
+                      <Database className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="text-xs text-[#2B3E2C]/70 font-mono">ENTERPRISE SYSTEMS</div>
+                      <div className="text-sm font-bold text-[#2B3E2C]">Built for Production Load</div>
+                    </div>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-[#FFF3D5] border border-[#4D694E]/20 flex items-center gap-4 shadow-sm">
+                    <div className="w-10 h-10 rounded-lg bg-[#4D694E]/15 border border-[#4D694E]/30 flex items-center justify-center text-[#4D694E]">
+                      <CheckCircle className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="text-xs text-[#2B3E2C]/70 font-mono">RELIABLE EXTRACTION</div>
+                      <div className="text-sm font-bold text-[#4D694E]">High Accuracy Understanding</div>
+                    </div>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-[#FFF3D5] border border-[#4D694E]/20 flex items-center gap-4 shadow-sm">
+                    <div className="w-10 h-10 rounded-lg bg-[#4D694E]/15 border border-[#4D694E]/30 flex items-center justify-center text-[#4D694E]">
+                      <Activity className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="text-xs text-[#2B3E2C]/70 font-mono">SEAMLESS INTEGRATION</div>
+                      <div className="text-sm font-bold text-[#2B3E2C]">Fits Your Organization</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             )}

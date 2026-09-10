@@ -64,7 +64,7 @@ export function CustomCursor() {
     <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
       {/* Outer ring */}
       <motion.div
-        className="fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-400/40 bg-cyan-500/5 backdrop-blur-[1px] flex items-center justify-center transition-[width,height,background-color] duration-200"
+        className="fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#4D694E]/50 bg-[#4D694E]/15 backdrop-blur-[1px] flex items-center justify-center transition-[width,height,background-color] duration-200"
         style={{
           x: smoothX,
           y: smoothY,
@@ -73,7 +73,7 @@ export function CustomCursor() {
         }}
       >
         {badgeText && (
-          <span className="text-[10px] font-mono tracking-widest text-cyan-300 font-semibold uppercase">
+          <span className="text-[10px] font-mono tracking-widest text-[#2B3E2C] font-bold uppercase">
             {badgeText}
           </span>
         )}
@@ -81,7 +81,7 @@ export function CustomCursor() {
 
       {/* Center dot */}
       <motion.div
-        className="fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400 shadow-[0_0_8px_#00F2FE]"
+        className="fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#4D694E] shadow-[0_0_8px_#4D694E]"
         style={{
           x: mouseX,
           y: mouseY,
@@ -89,6 +89,7 @@ export function CustomCursor() {
           height: cursorType === 'pointer' ? 6 : 4,
         }}
       />
+
     </div>
   );
 }

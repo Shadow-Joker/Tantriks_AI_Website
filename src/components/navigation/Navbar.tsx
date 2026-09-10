@@ -4,11 +4,13 @@ import { NAV_ITEMS } from '../../lib/constants';
 import { useMagnetic } from '../../hooks/useMagnetic';
 import { Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
 import tantriksLogo from '../../assets/tantriks-hub-mark.svg';
+import { useRouter } from '../../router/Router';
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState('Platform');
+  const [activeTab, setActiveTab] = useState('About');
+  const { pathname, navigate } = useRouter();
 
   const {
     ref: ctaRef,
@@ -26,6 +28,22 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (href: string, label?: string) => {
+    if (label) setActiveTab(label);
+    setMobileMenuOpen(false);
+
+    if (href.startsWith('#')) {
+      if (pathname !== '/') {
+        navigate('/' + href);
+      } else {
+        const el = document.querySelector(href);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      navigate(href);
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
@@ -36,17 +54,17 @@ export function Navbar() {
         <nav
           className={`flex items-center justify-between transition-all duration-300 ${
             scrolled
-              ? 'bg-[#0A0C12]/80 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] rounded-full px-5 py-2.5 max-w-5xl mx-auto'
+              ? 'bg-[#FFF3D5]/90 backdrop-blur-xl border border-[#4D694E]/25 shadow-[0_8px_32px_rgba(43,62,44,0.12)] rounded-full px-5 py-2.5 max-w-5xl mx-auto'
               : 'bg-transparent px-2 py-2'
           }`}
           aria-label="Main Navigation"
         >
           {/* Brand Logo */}
-          <a
-            href="#"
-            className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 rounded-lg p-1"
+          <button
+            onClick={() => handleNavClick('/')}
+            className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4D694E] rounded-lg p-1 text-left"
           >
-            <div className="relative w-8 h-8 rounded-lg bg-[#0C1117] border border-emerald-500/30 flex items-center justify-center p-1 shadow-[0_0_15px_rgba(34,224,107,0.25)] group-hover:shadow-[0_0_22px_rgba(34,224,107,0.5)] group-hover:border-emerald-400/60 transition-all duration-300">
+            <div className="relative w-8 h-8 rounded-lg bg-[#4D694E]/10 border border-[#4D694E]/30 flex items-center justify-center p-1 shadow-[0_0_15px_rgba(77,105,78,0.15)] group-hover:shadow-[0_0_22px_rgba(77,105,78,0.25)] group-hover:border-[#4D694E]/60 transition-all duration-300">
               <img
                 src={tantriksLogo}
                 alt="Tantriks AI Logo"
@@ -54,49 +72,48 @@ export function Navbar() {
               />
             </div>
             <div className="flex items-baseline gap-1.5">
-              <span className="font-display font-bold text-lg tracking-tight text-white">
+              <span className="font-display font-bold text-lg tracking-tight text-[#2B3E2C]">
                 Tantriks
               </span>
-              <span className="text-[10px] font-mono uppercase tracking-widest text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-1.5 py-0.5 rounded">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-[#FFF3D5] bg-[#4D694E] border border-[#4D694E]/30 px-1.5 py-0.5 rounded font-bold">
                 AI
               </span>
             </div>
-          </a>
+          </button>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden md:flex items-center gap-1 bg-[#10141E]/40 border border-white/5 rounded-full p-1">
+          <div className="hidden md:flex items-center gap-1 bg-[#4D694E]/10 border border-[#4D694E]/20 rounded-full p-1">
             {NAV_ITEMS.map((item) => {
-              const isActive = activeTab === item.label;
+              const isActive = activeTab === item.label && pathname === '/';
               return (
-                <a
+                <button
                   key={item.label}
-                  href={item.href}
-                  onClick={() => setActiveTab(item.label)}
+                  onClick={() => handleNavClick(item.href, item.label)}
                   className={`relative px-4 py-1.5 text-xs font-medium rounded-full transition-colors duration-200 ${
-                    isActive ? 'text-white' : 'text-slate-400 hover:text-slate-200'
+                    isActive ? 'text-[#2B3E2C] font-bold' : 'text-[#2B3E2C]/80 hover:text-[#4D694E]'
                   }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activeNavTab"
-                      className="absolute inset-0 bg-white/10 rounded-full border border-white/10"
+                      className="absolute inset-0 bg-[#FFF3D5] rounded-full border border-[#4D694E]/30 shadow-sm"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
                   <span className="relative z-10">{item.label}</span>
-                </a>
+                </button>
               );
             })}
           </div>
 
           {/* Desktop Right CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <a
-              href="#login"
-              className="text-xs font-medium text-slate-300 hover:text-white transition-colors duration-150 px-2 py-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded"
+            <button
+              onClick={() => handleNavClick('#contact')}
+              className="text-xs font-medium text-[#2B3E2C]/80 hover:text-[#4D694E] transition-colors duration-150 px-2 py-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#4D694E] rounded"
             >
-              Sign In
-            </a>
+              Contact
+            </button>
 
             <div
               ref={ctaRef}
@@ -104,15 +121,15 @@ export function Navbar() {
               onMouseLeave={handleCtaLeave}
               className="relative"
             >
-              <motion.a
-                href="#demo"
+              <motion.button
+                onClick={() => handleNavClick('#contact')}
                 animate={{ x: ctaPos.x, y: ctaPos.y }}
                 transition={{ type: 'spring', stiffness: 200, damping: 15, mass: 0.1 }}
-                className="relative inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold text-[#07080B] bg-gradient-to-r from-cyan-300 via-cyan-400 to-teal-300 rounded-full shadow-[0_0_15px_rgba(0,242,254,0.3)] hover:shadow-[0_0_25px_rgba(0,242,254,0.5)] transition-shadow duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-400"
+                className="relative inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold text-[#FFF3D5] bg-gradient-to-r from-[#4D694E] to-[#364C37] hover:from-[#364C37] hover:to-[#2B3E2C] rounded-full shadow-[0_0_15px_rgba(77,105,78,0.35)] hover:shadow-[0_0_25px_rgba(77,105,78,0.45)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#4D694E]"
               >
-                <span>Get Started</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </motion.a>
+                <span>Partner With Us</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#FFF3D5]" />
+              </motion.button>
             </div>
           </div>
 
@@ -120,7 +137,7 @@ export function Navbar() {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
-            className="md:hidden p-2 text-slate-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-lg"
+            className="md:hidden p-2 text-[#2B3E2C] hover:text-[#4D694E] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4D694E] rounded-lg"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -135,39 +152,37 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden mx-4 mt-2 p-4 rounded-2xl bg-[#0C0F17]/95 border border-white/10 backdrop-blur-2xl shadow-2xl flex flex-col gap-3"
+            className="md:hidden mx-4 mt-2 p-4 rounded-2xl bg-[#FFF3D5]/95 border border-[#4D694E]/30 backdrop-blur-2xl shadow-2xl flex flex-col gap-3"
           >
             {NAV_ITEMS.map((item) => (
-              <a
+              <button
                 key={item.label}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                onClick={() => handleNavClick(item.href, item.label)}
+                className="w-full text-left px-3 py-2 text-sm font-medium text-[#2B3E2C] hover:text-[#4D694E] hover:bg-[#4D694E]/10 rounded-lg transition-colors"
               >
                 {item.label}
-              </a>
+              </button>
             ))}
-            <div className="h-px bg-white/10 my-1" />
+            <div className="h-px bg-[#4D694E]/20 my-1" />
             <div className="flex items-center justify-between gap-3 pt-1">
-              <a
-                href="#login"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-1/2 py-2 text-center text-xs font-medium text-slate-300 hover:text-white border border-white/10 rounded-full"
+              <button
+                onClick={() => handleNavClick('#contact')}
+                className="w-1/2 py-2 text-center text-xs font-medium text-[#2B3E2C] hover:text-[#4D694E] border border-[#4D694E]/30 rounded-full"
               >
-                Sign In
-              </a>
-              <a
-                href="#demo"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-1/2 py-2 text-center text-xs font-semibold text-[#07080B] bg-cyan-400 rounded-full flex items-center justify-center gap-1"
+                Contact
+              </button>
+              <button
+                onClick={() => handleNavClick('#contact')}
+                className="w-1/2 py-2 text-center text-xs font-semibold text-[#FFF3D5] bg-gradient-to-r from-[#4D694E] to-[#364C37] rounded-full flex items-center justify-center gap-1 shadow-[0_0_12px_rgba(77,105,78,0.35)]"
               >
-                <Sparkles className="w-3 h-3" />
-                <span>Get Started</span>
-              </a>
+                <Sparkles className="w-3.5 h-3.5 text-[#FFF3D5]" />
+                <span>Partner With Us</span>
+              </button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
     </header>
   );
 }

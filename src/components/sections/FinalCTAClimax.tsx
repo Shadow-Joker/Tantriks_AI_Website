@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ArrowRight, Terminal, Shield, Sparkles, Check } from 'lucide-react';
+import { ArrowRight, Sparkles, Mail, Phone, CheckCircle2 } from 'lucide-react';
 import { useMagnetic } from '../../hooks/useMagnetic';
 
 export function FinalCTAClimax() {
@@ -11,29 +11,29 @@ export function FinalCTAClimax() {
   } = useMagnetic(0.25);
 
   return (
-    <section className="relative py-28 md:py-40 overflow-hidden border-t border-white/5">
+    <section id="contact" className="relative py-28 md:py-40 overflow-hidden border-t border-[#4D694E]/20">
       {/* Visual Climax Ambient Luminous Core */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[450px] bg-gradient-to-r from-cyan-500/20 via-teal-500/15 to-cyan-500/20 blur-[140px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[450px] bg-gradient-to-r from-[#4D694E]/20 via-[#364C37]/15 to-[#4D694E]/20 blur-[140px] pointer-events-none rounded-full" />
       <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         {/* Eyebrow tag */}
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/50 border border-cyan-500/30 text-cyan-300 text-xs font-mono uppercase tracking-widest mb-6">
-          <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-          Autonomous Velocity
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#4D694E]/10 border border-[#4D694E]/30 text-[#2B3E2C] font-semibold text-xs font-mono uppercase tracking-widest mb-6">
+          <Sparkles className="w-3.5 h-3.5 text-[#4D694E]" />
+          Tantriks AI
         </div>
 
         {/* Climax Headline */}
-        <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-display tracking-tighter text-white leading-[1.05] mb-8">
-          YOUR NEXT PRODUCT{' '}
-          <span className="bg-gradient-to-r from-cyan-300 via-cyan-400 to-teal-300 bg-clip-text text-transparent">
-            STARTS HERE.
+        <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-display tracking-tight text-[#2B3E2C] leading-[1.1] mb-8">
+          Partner with Tantriks AI and{' '}
+          <span className="bg-gradient-to-r from-[#4D694E] via-[#364C37] to-[#2B3E2C] bg-clip-text text-transparent">
+            unlock the magic of intelligent automation.
           </span>
         </h2>
 
         {/* Supporting copy */}
-        <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed mb-10">
-          Join leading engineering teams using Tantriks AI to orchestrate resilient, autonomous workflows at global scale.
+        <p className="text-base sm:text-lg md:text-xl text-[#2B3E2C]/80 max-w-2xl mx-auto font-normal leading-relaxed mb-10">
+          Have a workflow that could be smarter, faster, or completely automated? Let&apos;s build the right intelligent system for your business.
         </p>
 
         {/* CTAs */}
@@ -45,38 +45,44 @@ export function FinalCTAClimax() {
             className="relative w-full sm:w-auto"
           >
             <motion.a
-              href="#demo"
+              href="mailto:tantriksai2026@gmail.com"
               animate={{ x: btnPos.x, y: btnPos.y }}
               transition={{ type: 'spring', stiffness: 200, damping: 15, mass: 0.1 }}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm font-semibold text-[#07080B] bg-gradient-to-r from-cyan-300 via-cyan-400 to-teal-300 shadow-[0_0_30px_rgba(0,242,254,0.4)] hover:shadow-[0_0_45px_rgba(0,242,254,0.65)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm font-semibold text-[#FFF3D5] bg-gradient-to-r from-[#4D694E] to-[#364C37] shadow-[0_0_30px_rgba(77,105,78,0.4)] hover:shadow-[0_0_45px_rgba(77,105,78,0.6)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4D694E]"
             >
-              <span>Start Building Free</span>
+              <span>Partner With Tantriks AI</span>
               <ArrowRight className="w-4 h-4" />
             </motion.a>
           </div>
 
           <a
-            href="#architecture"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-sm font-medium text-slate-200 bg-[#0E121E] hover:bg-[#161B29] border border-white/10 hover:border-white/20 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+            href="tel:+919123555456"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-sm font-medium text-[#2B3E2C] bg-[#4D694E]/10 hover:bg-[#4D694E]/20 border border-[#4D694E]/30 hover:border-[#4D694E]/60 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4D694E]"
           >
-            <Terminal className="w-4 h-4 text-cyan-400" />
-            <span>Explore Platform</span>
+            <Phone className="w-4 h-4 text-[#4D694E]" />
+            <span>Let&apos;s Talk</span>
           </a>
         </div>
 
-        {/* Trust Badges */}
-        <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-mono">
+        {/* Contact Badges */}
+        <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-[#2B3E2C]/80 font-mono">
+          <a
+            href="mailto:tantriksai2026@gmail.com"
+            className="flex items-center gap-1.5 hover:text-[#4D694E] transition-colors"
+          >
+            <Mail className="w-3.5 h-3.5 text-[#4D694E]" />
+            <span>tantriksai2026@gmail.com</span>
+          </a>
+          <a
+            href="tel:+919123555456"
+            className="flex items-center gap-1.5 hover:text-[#4D694E] transition-colors"
+          >
+            <Phone className="w-3.5 h-3.5 text-[#4D694E]" />
+            <span>+91 9123555456</span>
+          </a>
           <div className="flex items-center gap-1.5">
-            <Check className="w-3.5 h-3.5 text-emerald-400" />
-            <span>No credit card required</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <Shield className="w-3.5 h-3.5 text-cyan-400" />
-            <span>SOC2 Type II Certified</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <Check className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Deploy in 5 minutes</span>
+            <CheckCircle2 className="w-3.5 h-3.5 text-[#4D694E]" />
+            <span>Custom-Built for Your Workflows</span>
           </div>
         </div>
       </div>

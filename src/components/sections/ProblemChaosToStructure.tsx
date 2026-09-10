@@ -9,63 +9,71 @@ export function ProblemChaosToStructure() {
   const [isStructured, setIsStructured] = useState(false);
 
   return (
-    <section id="architecture" className="relative py-24 md:py-32 overflow-hidden border-t border-white/5">
+    <section id="about" className="relative py-24 md:py-32 overflow-hidden border-t border-[#4D694E]/15">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Editorial Statement (No eyebrow per eyebrow restraint rule) */}
+        {/* Editorial Statement */}
         <div className="max-w-3xl mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold font-display tracking-tight text-white mb-6">
-            Complexity is expensive.
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#4D694E]/10 border border-[#4D694E]/30 text-[#2B3E2C] font-semibold text-xs font-mono uppercase tracking-widest mb-4">
+            About Tantriks AI
+          </div>
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold font-display tracking-tight text-[#2B3E2C] mb-6">
+            AI Built Around Your Business.
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-[65ch]">
-            Modern software teams lose hundreds of hours stitching fragmented APIs, debugging silent prompt regressions, and wrestling with runaway token latency. What begins as a simple script collapses under production scale.
+          <p className="text-base sm:text-lg text-[#2B3E2C]/85 leading-relaxed max-w-[65ch] mb-4">
+            Every business works differently. Instead of forcing your team into generic software, Tantriks AI creates intelligent systems around your unique workflows, challenges, and goals.
+          </p>
+          <p className="text-sm sm:text-base text-[#2B3E2C]/75 leading-relaxed max-w-[65ch]">
+            We combine artificial intelligence, automation, software engineering, and human-centered design to create technology that fits naturally into the way your organization operates.
           </p>
         </div>
 
         {/* Interactive Chaos to Structure Visual Stage */}
-        <div className="glass-panel-elevated rounded-3xl p-6 md:p-10 border border-white/10 relative overflow-hidden">
+        <div className="glass-panel-elevated rounded-3xl p-6 md:p-10 border border-[#4D694E]/25 relative overflow-hidden">
           {/* Top Control Bar with State Toggle */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-white/10">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-[#4D694E]/20">
             <div>
-              <div className="text-xs font-mono uppercase tracking-wider text-slate-400">
-                ARCHITECTURE SIMULATOR
+              <div className="text-xs font-mono uppercase tracking-wider text-[#4D694E] font-bold">
+                {isStructured ? 'THE SOLUTION' : 'THE PROBLEM'}
               </div>
-              <div className="text-lg font-bold text-white font-display">
-                {isStructured ? 'Unified Autonomous Mesh (Tantriks)' : 'Legacy Fragmented Stack'}
+              <div className="text-lg font-bold text-[#2B3E2C] font-display">
+                {isStructured
+                  ? 'Intelligence, engineered for your workflow.'
+                  : "Your business isn't generic. Your technology shouldn't be either."}
               </div>
             </div>
 
             {/* Interactive Toggle Pill */}
-            <div className="flex items-center gap-2 p-1 rounded-full bg-[#07090E] border border-white/10">
+            <div className="flex items-center gap-2 p-1 rounded-full bg-[#4D694E]/10 border border-[#4D694E]/25">
               <button
                 onClick={() => setIsStructured(false)}
                 className={`px-4 py-1.5 rounded-full text-xs font-medium font-mono transition-all ${
                   !isStructured
-                    ? 'bg-red-500/20 text-red-300 border border-red-500/40 shadow-sm'
-                    : 'text-slate-400 hover:text-white'
+                    ? 'bg-[#364C37] text-[#FFF3D5] border border-[#364C37] shadow-sm font-semibold'
+                    : 'text-[#2B3E2C]/80 hover:text-[#2B3E2C]'
                 }`}
               >
-                Fragmented Chaos
+                The Problem
               </button>
               <button
                 onClick={() => setIsStructured(true)}
                 className={`px-4 py-1.5 rounded-full text-xs font-semibold font-mono transition-all ${
                   isStructured
-                    ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-[0_0_15px_rgba(0,242,254,0.3)]'
-                    : 'text-slate-400 hover:text-white'
+                    ? 'bg-[#4D694E] text-[#FFF3D5] border border-[#4D694E] shadow-[0_0_15px_rgba(77,105,78,0.3)]'
+                    : 'text-[#2B3E2C]/80 hover:text-[#2B3E2C]'
                 }`}
               >
-                Tantriks Pipeline
+                The Solution
               </button>
             </div>
           </div>
 
           {/* Visualization Canvas Area */}
-          <div className="relative min-h-[360px] md:min-h-[400px] flex items-center justify-center p-4 rounded-2xl bg-[#080A10]/90 border border-white/5 overflow-hidden">
+          <div className="relative min-h-[360px] md:min-h-[400px] flex items-center justify-center p-4 rounded-2xl bg-[#FFF3D5] border border-[#4D694E]/20 overflow-hidden">
             {/* Background Grid Accent */}
-            <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
+            <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
 
             {!isStructured ? (
-              /* CHAOS VIEW */
+              /* CHAOS VIEW (THE PROBLEM) */
               <motion.div
                 key="chaos"
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -75,24 +83,24 @@ export function ProblemChaosToStructure() {
                 className="w-full relative h-full flex flex-col items-center justify-center py-6"
               >
                 {/* Tangled SVG connecting lines */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-40">
+                <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-60">
                   <path
                     d="M 120 180 Q 240 50 380 260 T 680 120"
-                    stroke="#EF4444"
+                    stroke="#4D694E"
                     strokeWidth="2"
                     strokeDasharray="4 4"
                     fill="none"
                   />
                   <path
                     d="M 150 120 Q 340 320 540 180 T 820 280"
-                    stroke="#F59E0B"
+                    stroke="#364C37"
                     strokeWidth="1.5"
                     strokeDasharray="6 3"
                     fill="none"
                   />
                   <path
                     d="M 280 300 Q 420 100 600 290"
-                    stroke="#EF4444"
+                    stroke="#2B3E2C"
                     strokeWidth="2"
                     fill="none"
                   />
@@ -100,48 +108,48 @@ export function ProblemChaosToStructure() {
 
                 {/* Tangled Unconnected Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl relative z-10">
-                  <div className="p-4 rounded-xl bg-red-950/20 border border-red-500/30 backdrop-blur-md transform -rotate-2">
+                  <div className="p-4 rounded-xl bg-[#FFF3D5] border border-[#4D694E]/30 backdrop-blur-md shadow-md transform -rotate-2">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-[10px] font-mono text-red-400">UNMANAGED BOTTLENECK</span>
-                      <AlertTriangle className="w-4 h-4 text-red-400 animate-bounce" />
+                      <span className="text-[10px] font-mono text-[#4D694E] font-bold">PAIN POINT 01</span>
+                      <AlertTriangle className="w-4 h-4 text-[#4D694E] animate-bounce" />
                     </div>
-                    <div className="text-sm font-semibold text-white">Manual Model Routing</div>
-                    <div className="mt-3 text-xs font-mono text-red-300/80 bg-red-900/30 px-2.5 py-1.5 rounded">
-                      Timeout after 4 retry attempts
+                    <div className="text-sm font-bold text-[#2B3E2C]">Repetitive Work</div>
+                    <div className="mt-3 text-xs font-mono text-[#2B3E2C] bg-[#F4E7C5] border border-[#4D694E]/20 px-2.5 py-1.5 rounded">
+                      Teams spend valuable time on tasks that could be automated.
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-amber-950/20 border border-amber-500/30 backdrop-blur-md transform translate-y-3 rotate-1">
+                  <div className="p-4 rounded-xl bg-[#FFF3D5] border border-[#364C37]/30 backdrop-blur-md shadow-md transform translate-y-3 rotate-1">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-[10px] font-mono text-amber-400">SILENT REGRESSION</span>
-                      <RefreshCw className="w-4 h-4 text-amber-400" />
+                      <span className="text-[10px] font-mono text-[#364C37] font-bold">PAIN POINT 02</span>
+                      <RefreshCw className="w-4 h-4 text-[#364C37]" />
                     </div>
-                    <div className="text-sm font-semibold text-white">Ad-hoc Prompt Chaining</div>
-                    <div className="mt-3 text-xs font-mono text-amber-300/80 bg-amber-900/30 px-2.5 py-1.5 rounded">
-                      Latency spiked to 840ms
+                    <div className="text-sm font-bold text-[#2B3E2C]">Complex AI Adoption</div>
+                    <div className="mt-3 text-xs font-mono text-[#2B3E2C] bg-[#F4E7C5] border border-[#364C37]/20 px-2.5 py-1.5 rounded">
+                      Powerful AI can be expensive, complicated, and difficult to integrate.
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-red-950/20 border border-red-500/30 backdrop-blur-md transform rotate-3">
+                  <div className="p-4 rounded-xl bg-[#FFF3D5] border border-[#2B3E2C]/30 backdrop-blur-md shadow-md transform rotate-3">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-[10px] font-mono text-red-400">COMPLIANCE RISK</span>
-                      <AlertTriangle className="w-4 h-4 text-red-400" />
+                      <span className="text-[10px] font-mono text-[#2B3E2C] font-bold">PAIN POINT 03 &amp; 04</span>
+                      <AlertTriangle className="w-4 h-4 text-[#2B3E2C]" />
                     </div>
-                    <div className="text-sm font-semibold text-white">Zero Observability</div>
-                    <div className="mt-3 text-xs font-mono text-red-300/80 bg-red-900/30 px-2.5 py-1.5 rounded">
-                      PII leak in raw token traces
+                    <div className="text-sm font-bold text-[#2B3E2C]">Generic Tools &amp; Silos</div>
+                    <div className="mt-3 text-xs font-mono text-[#2B3E2C] bg-[#F4E7C5] border border-[#2B3E2C]/20 px-2.5 py-1.5 rounded">
+                      Off-the-shelf tools miss needed capabilities and don&apos;t connect to existing workflows.
                     </div>
                   </div>
                 </div>
 
                 {/* Bottom Ticker */}
-                <div className="mt-8 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 text-xs font-mono text-red-300 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
-                  STATUS: Fragmented | Error Rate: 4.8% | Latency: 840ms
+                <div className="mt-8 px-4 py-2 rounded-full bg-[#4D694E]/10 border border-[#4D694E]/30 text-xs font-mono text-[#2B3E2C] flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#4D694E] animate-ping" />
+                  CHALLENGE: Off-the-shelf platforms force your business to adapt to technology.
                 </div>
               </motion.div>
             ) : (
-              /* STRUCTURED VIEW */
+              /* STRUCTURED VIEW (THE SOLUTION) */
               <motion.div
                 key="structured"
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -157,7 +165,7 @@ export function ProblemChaosToStructure() {
                     y1="50%"
                     x2="82%"
                     y2="50%"
-                    stroke="#00F2FE"
+                    stroke="#4D694E"
                     strokeWidth="2"
                     strokeDasharray="8 4"
                     className="animate-[dash_20s_linear_infinite]"
@@ -166,47 +174,44 @@ export function ProblemChaosToStructure() {
 
                 {/* Unified Tantriks Node Stream */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl relative z-10">
-                  <div className="p-5 rounded-xl bg-[#0F1420]/90 border border-cyan-500/40 shadow-[0_0_25px_rgba(0,242,254,0.15)]">
+                  <div className="p-5 rounded-xl bg-[#FFF3D5] border border-[#4D694E]/30 shadow-sm">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-[10px] font-mono text-cyan-300">STAGE 01: CLASSIFY</span>
-                      <CheckCircle2 className="w-4 h-4 text-cyan-400" />
+                      <span className="text-[10px] font-mono text-[#4D694E] font-bold">AUTOMATE &amp; INTEGRATE</span>
+                      <CheckCircle2 className="w-4 h-4 text-[#4D694E]" />
                     </div>
-                    <div className="text-sm font-semibold text-white">Neural Fast-Path</div>
-                    <div className="mt-3 text-xs font-mono text-cyan-200/90 bg-cyan-950/60 border border-cyan-800/40 px-2.5 py-1.5 rounded flex items-center justify-between">
-                      <span>Zero-shot Routing</span>
-                      <span className="text-emerald-400">1.2ms</span>
+                    <div className="text-sm font-bold text-[#2B3E2C]">Bespoke Workflow Sync</div>
+                    <div className="mt-3 text-xs font-mono text-[#2B3E2C] bg-[#F4E7C5] border border-[#4D694E]/20 px-2.5 py-1.5 rounded">
+                      Automate repetitive tasks and integrate AI directly into existing systems.
                     </div>
                   </div>
 
-                  <div className="p-5 rounded-xl bg-[#0F1420]/90 border border-cyan-500/40 shadow-[0_0_25px_rgba(0,242,254,0.15)]">
+                  <div className="p-5 rounded-xl bg-[#FFF3D5] border border-[#4D694E]/30 shadow-sm">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-[10px] font-mono text-cyan-300">STAGE 02: ORCHESTRATE</span>
-                      <Cpu className="w-4 h-4 text-cyan-400" />
+                      <span className="text-[10px] font-mono text-[#4D694E] font-bold">DECISION &amp; AGENTS</span>
+                      <Cpu className="w-4 h-4 text-[#4D694E]" />
                     </div>
-                    <div className="text-sm font-semibold text-white">Speculative Consensus</div>
-                    <div className="mt-3 text-xs font-mono text-cyan-200/90 bg-cyan-950/60 border border-cyan-800/40 px-2.5 py-1.5 rounded flex items-center justify-between">
-                      <span>Self-Healing Loop</span>
-                      <span className="text-emerald-400">99.98%</span>
+                    <div className="text-sm font-bold text-[#2B3E2C]">Intelligent AI Agents</div>
+                    <div className="mt-3 text-xs font-mono text-[#2B3E2C] bg-[#F4E7C5] border border-[#4D694E]/20 px-2.5 py-1.5 rounded">
+                      Improve decision-making and deploy AI agents alongside your team.
                     </div>
                   </div>
 
-                  <div className="p-5 rounded-xl bg-[#0F1420]/90 border border-cyan-500/40 shadow-[0_0_25px_rgba(0,242,254,0.15)]">
+                  <div className="p-5 rounded-xl bg-[#FFF3D5] border border-[#364C37]/30 shadow-sm">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-[10px] font-mono text-cyan-300">STAGE 03: DISPATCH</span>
-                      <Zap className="w-4 h-4 text-emerald-400" />
+                      <span className="text-[10px] font-mono text-[#364C37] font-bold">EVOLVING SOFTWARE</span>
+                      <Zap className="w-4 h-4 text-[#364C37]" />
                     </div>
-                    <div className="text-sm font-semibold text-white">Global Edge Stream</div>
-                    <div className="mt-3 text-xs font-mono text-cyan-200/90 bg-cyan-950/60 border border-cyan-800/40 px-2.5 py-1.5 rounded flex items-center justify-between">
-                      <span>Hardware Guardrails</span>
-                      <span className="text-emerald-400">12ms total</span>
+                    <div className="text-sm font-bold text-[#2B3E2C]">Scalable Custom Systems</div>
+                    <div className="mt-3 text-xs font-mono text-[#2B3E2C] bg-[#F4E7C5] border border-[#364C37]/20 px-2.5 py-1.5 rounded">
+                      Create software that evolves continuously as your business grows.
                     </div>
                   </div>
                 </div>
 
                 {/* Bottom Ticker */}
-                <div className="mt-8 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-xs font-mono text-emerald-300 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  STATUS: Synced Pipeline | Error Rate: 0.00% | Latency: 12ms (98.5% improvement)
+                <div className="mt-8 px-4 py-2 rounded-full bg-[#4D694E]/15 border border-[#4D694E]/30 text-xs font-mono text-[#2B3E2C] flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#4D694E] animate-pulse" />
+                  &ldquo;Instead of adapting your business to technology, we adapt technology to your business.&rdquo;
                 </div>
               </motion.div>
             )}
