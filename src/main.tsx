@@ -4,11 +4,15 @@ import './index.css';
 import App from './App.tsx';
 import { RouterProvider } from './router/Router.tsx';
 
+import { ThemeProvider } from './context/ThemeContext.tsx';
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider>
-      <App />
-    </RouterProvider>
+    <ThemeProvider>
+      <RouterProvider>
+        <App />
+      </RouterProvider>
+    </ThemeProvider>
   </StrictMode>,
 );
 

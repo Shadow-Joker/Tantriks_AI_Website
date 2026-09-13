@@ -1,12 +1,11 @@
 import { motion } from 'motion/react';
 import { ECOSYSTEM_MODULES } from '../../lib/constants';
-import { Cpu, Database, Network, Globe, Activity, ShieldCheck, ArrowUpRight } from 'lucide-react';
+import { Cpu, Database, Network, Activity, ShieldCheck, ArrowUpRight } from 'lucide-react';
 
 const iconMap: Record<string, typeof Cpu> = {
   Cpu,
   Database,
   Network,
-  Globe,
   Activity,
   ShieldCheck,
 };
@@ -31,8 +30,8 @@ export function EcosystemSpatial() {
           </p>
         </div>
 
-        {/* Spatial Bento Grid with Distinct Depth Variations */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Spatial Bento Grid with Distinct Depth Variations - Balanced 2x2 Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
           {ECOSYSTEM_MODULES.map((module, index) => {
             const IconComponent = iconMap[module.icon] || Cpu;
 
@@ -41,10 +40,10 @@ export function EcosystemSpatial() {
                 key={module.id}
                 whileHover={{ y: -6 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                className={`p-6 md:p-7 rounded-2xl relative overflow-hidden transition-all duration-300 group ${
+                className={`p-6 md:p-8 rounded-2xl relative overflow-hidden transition-all duration-300 group ${
                   index === 0
                     ? 'border border-[#4D694E]/40 bg-gradient-to-br from-[#FFF3D5] via-[#F4E7C5] to-[#EBDDB6] shadow-sm'
-                    : index === 2
+                    : index === 3
                     ? 'border border-[#4D694E]/30 bg-gradient-to-br from-[#F4E7C5] via-[#FFF3D5] to-[#F4E7C5] shadow-sm'
                     : 'border border-[#4D694E]/20 bg-[#F4E7C5]/70 shadow-sm'
                 }`}

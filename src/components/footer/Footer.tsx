@@ -9,14 +9,12 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-16">
           {/* Brand & Mission Column */}
           <div className="col-span-2">
-            <div className="flex items-center gap-2.5 mb-3">
-              <div className="w-7 h-7 rounded-lg bg-[#FFF3D5] border border-[#4D694E]/30 flex items-center justify-center p-1 shadow-sm">
-                <img
-                  src={tantriksLogo}
-                  alt="Tantriks AI Logo"
-                  className="w-full h-full object-contain"
-                />
-              </div>
+            <div className="flex items-center gap-2 mb-3">
+              <img
+                src={tantriksLogo}
+                alt="Tantriks AI Logo"
+                className="w-7 h-7 object-contain drop-shadow-[0_0_8px_rgba(77,105,78,0.2)] dark:drop-shadow-[0_0_10px_rgba(130,209,115,0.35)]"
+              />
               <span className="font-display font-bold text-[#2B3E2C] text-base tracking-tight">
                 Tantriks AI
               </span>

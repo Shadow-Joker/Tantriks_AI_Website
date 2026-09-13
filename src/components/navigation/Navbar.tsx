@@ -5,6 +5,7 @@ import { useMagnetic } from '../../hooks/useMagnetic';
 import { Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
 import tantriksLogo from '../../assets/tantriks-hub-mark.svg';
 import { useRouter } from '../../router/Router';
+import { ThemeToggle } from './ThemeToggle';
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -62,15 +63,13 @@ export function Navbar() {
           {/* Brand Logo */}
           <button
             onClick={() => handleNavClick('/')}
-            className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4D694E] rounded-lg p-1 text-left"
+            className="flex items-center gap-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4D694E] rounded-lg py-1 px-1 text-left"
           >
-            <div className="relative w-8 h-8 rounded-lg bg-[#4D694E]/10 border border-[#4D694E]/30 flex items-center justify-center p-1 shadow-[0_0_15px_rgba(77,105,78,0.15)] group-hover:shadow-[0_0_22px_rgba(77,105,78,0.25)] group-hover:border-[#4D694E]/60 transition-all duration-300">
-              <img
-                src={tantriksLogo}
-                alt="Tantriks AI Logo"
-                className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
+            <img
+              src={tantriksLogo}
+              alt="Tantriks AI Logo"
+              className="w-7 h-7 sm:w-8 sm:h-8 object-contain transform group-hover:scale-110 transition-transform duration-300 drop-shadow-[0_0_8px_rgba(77,105,78,0.25)] dark:drop-shadow-[0_0_12px_rgba(130,209,115,0.45)]"
+            />
             <div className="flex items-baseline gap-1.5">
               <span className="font-display font-bold text-lg tracking-tight text-[#2B3E2C]">
                 Tantriks
@@ -105,9 +104,10 @@ export function Navbar() {
               );
             })}
           </div>
-
           {/* Desktop Right CTA */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
+
             <button
               onClick={() => handleNavClick('#contact')}
               className="text-xs font-medium text-[#2B3E2C]/80 hover:text-[#4D694E] transition-colors duration-150 px-2 py-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#4D694E] rounded"
@@ -133,14 +133,17 @@ export function Navbar() {
             </div>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle navigation menu"
-            className="md:hidden p-2 text-[#2B3E2C] hover:text-[#4D694E] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4D694E] rounded-lg"
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          {/* Mobile Right Controls */}
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle navigation menu"
+              className="p-2 text-[#2B3E2C] hover:text-[#4D694E] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4D694E] rounded-lg"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </nav>
       </div>
 
@@ -163,6 +166,10 @@ export function Navbar() {
                 {item.label}
               </button>
             ))}
+            <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-[#4D694E]/5 border border-[#4D694E]/10">
+              <span className="text-xs font-mono text-[#2B3E2C] uppercase tracking-wider font-semibold">Theme</span>
+              <ThemeToggle />
+            </div>
             <div className="h-px bg-[#4D694E]/20 my-1" />
             <div className="flex items-center justify-between gap-3 pt-1">
               <button

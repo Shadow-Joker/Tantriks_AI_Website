@@ -81,6 +81,8 @@ export function ParticleCanvas() {
 
       ctx.clearRect(0, 0, width, height);
 
+      const isDark = document.documentElement.classList.contains('dark');
+
       // Draw subtle connecting telemetry lines
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
@@ -91,7 +93,9 @@ export function ParticleCanvas() {
           if (dist < 110) {
             const lineAlpha = (1 - dist / 110) * 0.16;
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(77, 105, 78, ${lineAlpha * 1.5})`;
+            ctx.strokeStyle = isDark
+              ? `rgba(130, 209, 115, ${lineAlpha * 1.8})`
+              : `rgba(77, 105, 78, ${lineAlpha * 1.5})`;
             ctx.lineWidth = 0.75;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -129,9 +133,11 @@ export function ParticleCanvas() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(43, 62, 44, ${p.alpha * 1.2})`;
-        ctx.shadowColor = '#4D694E';
-        ctx.shadowBlur = 4;
+        ctx.fillStyle = isDark
+          ? `rgba(130, 209, 115, ${p.alpha * 1.5})`
+          : `rgba(43, 62, 44, ${p.alpha * 1.2})`;
+        ctx.shadowColor = isDark ? '#82D173' : '#4D694E';
+        ctx.shadowBlur = isDark ? 6 : 4;
         ctx.fill();
         ctx.shadowBlur = 0;
       }

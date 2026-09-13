@@ -158,3 +158,280 @@
     cursor: none !important;
   }
 }
+
+/* ==========================================================================
+   DARK THEME PALETTE: SMOKY BLACK (#0F0A0A) & MANTIS (#82D173)
+   ========================================================================== */
+
+html.dark {
+  color-scheme: dark;
+  --bg-canvas: #0F0A0A;
+  --bg-surface: #181313;
+  --bg-surface-elevated: #221C1C;
+  --bg-card: rgba(130, 209, 115, 0.06);
+
+  --color-primary-olive: #82D173;
+  --color-primary-cream: #0F0A0A;
+  --color-dark-olive: #F4FAF3;
+  --color-deep-forest: #0A0606;
+  --color-light-olive: #9DE48F;
+  --color-sage-accent: #82D173;
+
+  --border-subtle: rgba(130, 209, 115, 0.18);
+  --border-card: rgba(130, 209, 115, 0.28);
+  --border-focus: rgba(130, 209, 115, 0.6);
+  --border-glass: rgba(130, 209, 115, 0.25);
+
+  background-color: #0F0A0A;
+  color: #F4FAF3;
+}
+
+html.dark body,
+html.dark #root,
+html.dark [class*="min-h-[100dvh]"] {
+  background-color: #0F0A0A !important;
+  color: #F4FAF3 !important;
+}
+
+/* Selection */
+html.dark ::selection {
+  background-color: #82D173 !important;
+  color: #0F0A0A !important;
+}
+
+/* Dark Scrollbar */
+html.dark::-webkit-scrollbar-track,
+html.dark ::-webkit-scrollbar-track {
+  background: #0F0A0A;
+}
+
+html.dark::-webkit-scrollbar-thumb,
+html.dark ::-webkit-scrollbar-thumb {
+  background: #82D173;
+  border: 2px solid #0F0A0A;
+}
+
+html.dark::-webkit-scrollbar-thumb:hover,
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #9DE48F;
+}
+
+/* Dark Glass Panels */
+html.dark .glass-panel {
+  background: linear-gradient(135deg, rgba(24, 19, 19, 0.88) 0%, rgba(15, 10, 10, 0.82) 100%), rgba(24, 19, 19, 0.92);
+  border: 1px solid rgba(130, 209, 115, 0.22);
+  box-shadow: inset 0 1px 0 rgba(130, 209, 115, 0.15), 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+}
+
+html.dark .glass-panel-elevated {
+  background: linear-gradient(135deg, rgba(34, 28, 28, 0.95) 0%, rgba(24, 19, 19, 0.9) 100%), rgba(34, 28, 28, 0.95);
+  border: 1px solid rgba(130, 209, 115, 0.35);
+  box-shadow: inset 0 1px 0 rgba(130, 209, 115, 0.25), 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 25px rgba(130, 209, 115, 0.15);
+}
+
+/* Dark Canvas Ambient Grid & Radials */
+html.dark .bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(130, 209, 115, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(130, 209, 115, 0.08) 1px, transparent 1px);
+}
+
+html.dark .bg-radial-gradient {
+  background: radial-gradient(circle at 50% 20%, rgba(130, 209, 115, 0.16) 0%, rgba(130, 209, 115, 0.04) 40%, transparent 75%);
+}
+
+/* Dark Ambient Lighting in Hero & Sections */
+html.dark .blur-3xl {
+  opacity: 0.6;
+}
+
+/* Background Utility Overrides in Dark Mode */
+html.dark [class*="bg-[#FFF3D5]"]:not(input):not(textarea):not(button):not(span) {
+  background-color: #0F0A0A !important;
+}
+
+html.dark div[class*="rounded"][class*="bg-[#FFF3D5]"],
+html.dark div[class*="p-"][class*="bg-[#FFF3D5]"] {
+  background-color: #181313 !important;
+}
+
+/* Card gradient overrides in Dark Mode */
+html.dark [class*="bg-gradient-to-br"]:not(a):not(button):not(span),
+html.dark [class*="from-[#FFF3D5]"]:not(a):not(button):not(span),
+html.dark [class*="from-[#F4E7C5]"]:not(a):not(button):not(span) {
+  background-image: linear-gradient(135deg, #181313 0%, #1F1919 50%, #151010 100%) !important;
+}
+
+/* Active Nav Tab in Dark Mode */
+html.dark .absolute.inset-0[class*="bg-[#FFF3D5]"] {
+  background-color: #1F1919 !important;
+  border-color: rgba(130, 209, 115, 0.4) !important;
+}
+
+/* Category & Badge Tags in Dark Mode */
+html.dark span[class*="bg-[#FFF3D5]"] {
+  background-color: #1F1919 !important;
+  color: #82D173 !important;
+  border-color: rgba(130, 209, 115, 0.3) !important;
+}
+
+/* Icon Containers in Dark Mode */
+html.dark div[class*="w-10"][class*="h-10"][class*="bg-[#FFF3D5]"],
+html.dark div[class*="w-12"][class*="h-12"][class*="bg-[#FFF3D5]"],
+html.dark div[class*="w-8"][class*="h-8"][class*="bg-[#FFF3D5]"] {
+  background-color: #1F1919 !important;
+  border-color: rgba(130, 209, 115, 0.35) !important;
+  color: #82D173 !important;
+}
+
+/* SVG Line & Path Strokes in Dark Mode */
+html.dark svg path[stroke="#4D694E"],
+html.dark svg line[stroke="#4D694E"] {
+  stroke: #82D173 !important;
+}
+
+html.dark svg path[stroke="#364C37"],
+html.dark svg path[stroke="#2B3E2C"] {
+  stroke: #5CB44C !important;
+}
+
+html.dark nav[class*="bg-[#FFF3D5]/90"],
+html.dark [class*="bg-[#FFF3D5]/95"],
+html.dark [class*="bg-[#FFF3D5]/90"] {
+  background-color: rgba(24, 19, 19, 0.92) !important;
+  border-color: rgba(130, 209, 115, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55) !important;
+}
+
+html.dark [class*="bg-[#F4E7C5]"] {
+  background-color: #181313 !important;
+}
+
+html.dark [class*="bg-[#EBDDB6]"] {
+  background-color: #221C1C !important;
+}
+
+html.dark [class*="bg-[#4D694E]/10"] {
+  background-color: rgba(130, 209, 115, 0.12) !important;
+}
+
+html.dark [class*="bg-[#4D694E]/20"] {
+  background-color: rgba(130, 209, 115, 0.22) !important;
+}
+
+html.dark [class*="bg-[#4D694E]/5"] {
+  background-color: rgba(130, 209, 115, 0.06) !important;
+}
+
+/* Text Utility Overrides in Dark Mode */
+html.dark [class*="text-[#2B3E2C]"]:not([class*="text-[#2B3E2C]/"]):not([class*="group-hover:text-[#FFF3D5]"]) {
+  color: #F4FAF3 !important;
+}
+
+html.dark [class*="text-[#2B3E2C]/80"],
+html.dark [class*="text-[#2B3E2C]/75"],
+html.dark [class*="text-[#2B3E2C]/70"] {
+  color: #A9BBA6 !important;
+}
+
+html.dark [class*="text-[#2B3E2C]/60"],
+html.dark [class*="text-[#2B3E2C]/50"] {
+  color: #7E927B !important;
+}
+
+html.dark [class*="text-[#4D694E]"] {
+  color: #82D173 !important;
+}
+
+/* Border Utility Overrides in Dark Mode */
+html.dark [class*="border-[#4D694E]"] {
+  border-color: rgba(130, 209, 115, 0.28) !important;
+}
+
+html.dark [class*="border-[#4D694E]/30"] {
+  border-color: rgba(130, 209, 115, 0.35) !important;
+}
+
+html.dark [class*="border-[#4D694E]/25"] {
+  border-color: rgba(130, 209, 115, 0.28) !important;
+}
+
+html.dark [class*="border-[#4D694E]/20"] {
+  border-color: rgba(130, 209, 115, 0.2) !important;
+}
+
+html.dark [class*="border-[#4D694E]/40"] {
+  border-color: rgba(130, 209, 115, 0.45) !important;
+}
+
+html.dark [class*="border-[#4D694E]/60"] {
+  border-color: rgba(130, 209, 115, 0.65) !important;
+}
+
+/* Gradient Buttons (Mantis Green Glow in Dark Mode) */
+html.dark a[class*="from-[#4D694E]"],
+html.dark button[class*="from-[#4D694E]"] {
+  background-image: linear-gradient(to right, #82D173, #5EB74D) !important;
+  color: #0F0A0A !important;
+  box-shadow: 0 0 25px rgba(130, 209, 115, 0.4) !important;
+}
+
+html.dark a[class*="from-[#4D694E]"]:hover,
+html.dark button[class*="from-[#4D694E]"]:hover {
+  background-image: linear-gradient(to right, #94DD87, #6CC55B) !important;
+  box-shadow: 0 0 35px rgba(130, 209, 115, 0.55) !important;
+}
+
+html.dark a[class*="from-[#4D694E]"] span,
+html.dark button[class*="from-[#4D694E]"] span,
+html.dark a[class*="from-[#4D694E]"] svg,
+html.dark button[class*="from-[#4D694E]"] svg {
+  color: #0F0A0A !important;
+  stroke: #0F0A0A !important;
+}
+
+/* Headline Gradient Text in Dark Mode */
+html.dark span[class*="from-[#4D694E]"][class*="bg-clip-text"] {
+  background-image: linear-gradient(to right, #82D173 0%, #A9ECA0 50%, #F4FAF3 100%) !important;
+}
+
+/* Form Inputs in Dark Mode */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #181313 !important;
+  color: #F4FAF3 !important;
+  border-color: rgba(130, 209, 115, 0.3) !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #7E927B !important;
+}
+
+html.dark input:focus,
+html.dark textarea:focus {
+  border-color: #82D173 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(130, 209, 115, 0.25) !important;
+}
+
+/* Dark Skeletons */
+html.dark .skeleton-shimmer-effect {
+  background-color: rgba(130, 209, 115, 0.08) !important;
+}
+
+html.dark .skeleton-shimmer-effect::after {
+  background-image: linear-gradient(
+    90deg,
+    rgba(130, 209, 115, 0) 0%,
+    rgba(130, 209, 115, 0.18) 50%,
+    rgba(130, 209, 115, 0) 100%
+  ) !important;
+}
+
+/* Glowing Indicator Dots */
+html.dark span[class*="bg-[#4D694E]"][class*="rounded-full"] {
+  background-color: #82D173 !important;
+  box-shadow: 0 0 8px #82D173;
+}

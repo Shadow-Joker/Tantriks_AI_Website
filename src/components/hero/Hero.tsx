@@ -18,16 +18,6 @@ export function Hero() {
 
       {/* Hero Typography & CTA Content Stack (Max 4 Text Elements) */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-6 md:pt-10 z-20">
-        {/* 1. Eyebrow */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4D694E]/10 border border-[#4D694E]/30 text-[#2B3E2C] font-semibold text-xs font-mono uppercase tracking-widest mb-6"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#4D694E] animate-pulse" />
-          TANTRIKS AI
-        </motion.div>
 
         {/* 2. Headline */}
         <motion.h1
