@@ -14,7 +14,6 @@ import { ProblemChaosToStructure } from './components/sections/ProblemChaosToStr
 import { ProductRevealStudio } from './components/sections/ProductRevealStudio';
 import { FeatureStorySticky } from './components/sections/FeatureStorySticky';
 import { EcosystemSpatial } from './components/sections/EcosystemSpatial';
-import { InteractiveDemoPlayground } from './components/sections/InteractiveDemoPlayground';
 import { MetricsSocialProof } from './components/sections/MetricsSocialProof';
 import { FinalCTAClimax } from './components/sections/FinalCTAClimax';
 
@@ -54,10 +53,7 @@ function LandingPage() {
       {/* Section 04: Product Ecosystem (Spatial 3D Grid) */}
       <EcosystemSpatial />
 
-      {/* Section 05: Interactive Playground Console */}
-      <InteractiveDemoPlayground />
-
-      {/* Section 06: Why Tantriks AI (Differentiators, Mission & Vision) */}
+      {/* Section 05: Why Tantriks AI (Differentiators, Mission & Vision) */}
       <MetricsSocialProof />
 
       {/* Section 07: Final CTA Climax */}
