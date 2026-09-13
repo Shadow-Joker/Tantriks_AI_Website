@@ -174,7 +174,7 @@ export function HeroParallaxEngine() {
             <motion.div
               animate={{ x: ['-120%', '300%'] }}
               transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut', repeatDelay: 1.5 }}
-              className="absolute inset-y-0 w-40 bg-gradient-to-r from-transparent via-[#82D173]/15 to-transparent pointer-events-none skew-x-12 z-30"
+              className="absolute inset-y-0 w-40 bg-gradient-to-r from-transparent via-[#4D694E]/10 dark:via-[#82D173]/15 to-transparent pointer-events-none skew-x-12 z-30"
             />
           )}
 
@@ -363,9 +363,9 @@ export function HeroParallaxEngine() {
           }}
           className="hidden lg:flex items-center gap-3 p-3 rounded-xl bg-[#FFF3D5]/95 dark:bg-[#181313]/95 border border-[#4D694E]/30 dark:border-[#82D173]/35 backdrop-blur-xl shadow-2xl shadow-[#4D694E]/10 dark:shadow-[#82D173]/15 -translate-y-16"
         >
-          <div className="relative w-8 h-8 rounded-lg bg-[#4D694E] dark:bg-[#82D173] flex items-center justify-center text-[#FFF3D5] dark:text-[#0F0A0A] shadow-[0_0_15px_rgba(130,209,115,0.4)]">
+          <div className="relative w-8 h-8 rounded-lg bg-[#4D694E] dark:bg-[#82D173] flex items-center justify-center text-[#FFF3D5] dark:text-[#0F0A0A] shadow-[0_0_15px_rgba(77,105,78,0.25)] dark:shadow-[0_0_15px_rgba(130,209,115,0.4)]">
             <Zap className="w-4 h-4 fill-current" />
-            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-[#82D173] animate-ping" />
+            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-[#4D694E] dark:bg-[#82D173] animate-ping" />
           </div>
           <div>
             <div className="text-[10px] font-mono text-[#2B3E2C]/70 dark:text-[#82D173]/70 flex items-center gap-1">
