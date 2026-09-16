@@ -68,7 +68,7 @@ export function Navbar() {
             <img
               src={tantriksLogo}
               alt="Tantriks AI Logo"
-              className="w-7 h-7 sm:w-8 sm:h-8 object-contain transform group-hover:scale-110 transition-transform duration-300 drop-shadow-[0_0_8px_rgba(77,105,78,0.25)] dark:drop-shadow-[0_0_12px_rgba(130,209,115,0.45)]"
+              className="w-9 h-9 sm:w-10 sm:h-10 object-contain transform group-hover:scale-110 transition-transform duration-300 drop-shadow-[0_0_10px_rgba(77,105,78,0.3)] dark:drop-shadow-[0_0_14px_rgba(130,209,115,0.5)]"
             />
             <div className="flex items-baseline gap-1.5">
               <span className="font-display font-bold text-lg tracking-tight text-[#2B3E2C]">

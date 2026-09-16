@@ -13,7 +13,7 @@ export function Footer() {
               <img
                 src={tantriksLogo}
                 alt="Tantriks AI Logo"
-                className="w-7 h-7 object-contain drop-shadow-[0_0_8px_rgba(77,105,78,0.2)] dark:drop-shadow-[0_0_10px_rgba(130,209,115,0.35)]"
+                className="w-8 h-8 sm:w-9 sm:h-9 object-contain drop-shadow-[0_0_10px_rgba(77,105,78,0.25)] dark:drop-shadow-[0_0_12px_rgba(130,209,115,0.4)]"
               />
               <span className="font-display font-bold text-[#2B3E2C] text-base tracking-tight">
                 Tantriks AI
