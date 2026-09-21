@@ -87,7 +87,7 @@ export function CookiePreferencesPage() {
   };
 
   return (
-    <div className="pt-32 pb-24 md:pt-40 md:pb-36 bg-[#FFF3D5] text-[#2B3E2C] min-h-screen relative">
+    <div className="pt-32 pb-24 md:pt-40 md:pb-36 bg-transparent text-[#2B3E2C] dark:text-[#F4FAF3] min-h-screen relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Link */}
         <div className="mb-8">

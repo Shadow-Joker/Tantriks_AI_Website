@@ -127,7 +127,6 @@ export function HeroParallaxEngine() {
       >
         <div className="absolute inset-0 bg-radial-gradient" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#4D694E]/15 dark:bg-[#82D173]/15 blur-[130px] rounded-full pointer-events-none animate-pulse" style={{ animationDuration: '6s' }} />
-        <div className="absolute inset-0 bg-grid-pattern opacity-40" />
       </motion.div>
 
       {/* LAYER 02: Large Abstract Geometric Forms with Orbiting Satellites */}

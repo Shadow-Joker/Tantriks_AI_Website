@@ -135,7 +135,7 @@ export function SupportPage() {
   };
 
   return (
-    <div className="pt-32 pb-24 md:pt-40 md:pb-36 bg-[#FFF3D5] text-[#2B3E2C] min-h-screen">
+    <div className="pt-32 pb-24 md:pt-40 md:pb-36 bg-transparent text-[#2B3E2C] dark:text-[#F4FAF3] min-h-screen">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Link */}
         <div className="mb-8">

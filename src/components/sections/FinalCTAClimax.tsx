@@ -14,7 +14,6 @@ export function FinalCTAClimax() {
     <section id="contact" className="relative py-28 md:py-40 overflow-hidden border-t border-[#4D694E]/20">
       {/* Visual Climax Ambient Luminous Core */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[450px] bg-gradient-to-r from-[#4D694E]/20 via-[#364C37]/15 to-[#4D694E]/20 blur-[140px] pointer-events-none rounded-full" />
-      <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         {/* Eyebrow tag */}

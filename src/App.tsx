@@ -119,7 +119,17 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-[100dvh] bg-[#FFF3D5] text-[#2B3E2C] selection:bg-[#4D694E] selection:text-[#FFF3D5]">
+    <div className="relative min-h-[100dvh] bg-[#FFF3D5] dark:bg-[#0F0A0A] text-[#2B3E2C] dark:text-[#F4FAF3] selection:bg-[#4D694E] selection:text-[#FFF3D5] dark:selection:bg-[#82D173] dark:selection:text-[#0F0A0A]">
+      {/* Global Ambient Background Layer (Technical grid + soft radial illumination) */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+        {/* Crisp Geometric Grid Pattern across entire viewport */}
+        <div className="absolute inset-0 bg-grid-pattern" />
+        {/* Soft Radial Gradient Glow */}
+        <div className="absolute inset-0 bg-radial-gradient" />
+        {/* Subtle Ambient Atmosphere Glow Orbs */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] sm:w-[900px] h-[450px] bg-gradient-to-r from-[#4D694E]/12 via-[#6E8F6F]/8 to-[#4D694E]/12 dark:from-[#82D173]/12 dark:via-[#9DE48F]/8 dark:to-[#82D173]/12 blur-[130px] rounded-full pointer-events-none" />
+      </div>
+
       {/* Initial Global Boot Loader */}
       {showBootLoader && <GlobalLoader onComplete={handleBootComplete} />}
 
@@ -136,7 +146,7 @@ export default function App() {
       <Navbar />
 
       {/* Main Content Flow with Contextual Skeleton Fallback */}
-      <main id="main-content">
+      <main id="main-content" className="relative z-10">
         <Suspense fallback={<PageSkeleton />}>
           {renderCurrentPage()}
         </Suspense>

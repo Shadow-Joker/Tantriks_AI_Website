@@ -4,7 +4,7 @@ import { Link } from '../../router/Link';
 
 export function Footer() {
   return (
-    <footer className="border-t border-[#4D694E]/20 bg-[#F4E7C5] py-16 text-[#2B3E2C]/80 text-xs">
+    <footer className="relative z-10 border-t border-[#4D694E]/20 bg-[#F4E7C5]/85 dark:bg-[#181313]/85 backdrop-blur-md py-16 text-[#2B3E2C]/80 dark:text-[#F4FAF3]/80 text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-16">
           {/* Brand & Mission Column */}

@@ -14,7 +14,7 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden">
       {/* Background ambient lighting */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[550px] bg-gradient-to-b from-[#4D694E]/20 via-[#4D694E]/10 to-transparent blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[550px] bg-gradient-to-b from-[#4D694E]/15 via-[#4D694E]/5 to-transparent dark:from-[#82D173]/12 dark:via-[#82D173]/5 dark:to-transparent blur-3xl pointer-events-none -z-10" />
 
       {/* Starting Screen: Pure Hero Typography & CTA Content Stack (Full First Viewport) */}
       <div className="min-h-[calc(100dvh-5rem)] flex flex-col justify-center items-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 md:pt-28 pb-10 z-20">
