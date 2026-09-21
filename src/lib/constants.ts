@@ -6,6 +6,7 @@ export const NAV_ITEMS = [
   { label: 'How We Work', href: '#process' },
   { label: 'Industries', href: '#industries' },
   { label: 'Why Tantriks', href: '#why-tantriks' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 export const HOW_WE_WORK_STEPS: FeatureChapter[] = [

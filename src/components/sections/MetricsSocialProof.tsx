@@ -3,7 +3,8 @@ import { Target, Compass } from 'lucide-react';
 
 export function MetricsSocialProof() {
   return (
-    <section id="why-us" className="relative py-24 md:py-36 border-t border-[#4D694E]/20 overflow-hidden">
+    <section id="why-tantriks" className="relative py-24 md:py-36 border-t border-[#4D694E]/20 overflow-hidden">
+      <div id="why-us" className="absolute -top-24" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">

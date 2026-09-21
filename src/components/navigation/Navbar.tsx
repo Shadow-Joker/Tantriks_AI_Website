@@ -108,13 +108,6 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
 
-            <button
-              onClick={() => handleNavClick('#contact')}
-              className="text-xs font-medium text-[#2B3E2C]/80 hover:text-[#4D694E] transition-colors duration-150 px-2 py-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#4D694E] rounded"
-            >
-              Contact
-            </button>
-
             <div
               ref={ctaRef}
               onMouseMove={handleCtaMove}
@@ -171,16 +164,10 @@ export function Navbar() {
               <ThemeToggle />
             </div>
             <div className="h-px bg-[#4D694E]/20 my-1" />
-            <div className="flex items-center justify-between gap-3 pt-1">
+            <div className="pt-1">
               <button
                 onClick={() => handleNavClick('#contact')}
-                className="w-1/2 py-2 text-center text-xs font-medium text-[#2B3E2C] hover:text-[#4D694E] border border-[#4D694E]/30 rounded-full"
-              >
-                Contact
-              </button>
-              <button
-                onClick={() => handleNavClick('#contact')}
-                className="w-1/2 py-2 text-center text-xs font-semibold text-[#FFF3D5] bg-gradient-to-r from-[#4D694E] to-[#364C37] rounded-full flex items-center justify-center gap-1 shadow-[0_0_12px_rgba(77,105,78,0.35)]"
+                className="w-full py-2.5 text-center text-xs font-semibold text-[#FFF3D5] bg-gradient-to-r from-[#4D694E] to-[#364C37] rounded-full flex items-center justify-center gap-1.5 shadow-[0_0_12px_rgba(77,105,78,0.35)]"
               >
                 <Sparkles className="w-3.5 h-3.5 text-[#FFF3D5]" />
                 <span>Partner With Us</span>
