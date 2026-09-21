@@ -62,7 +62,7 @@ export function PaymentFailedPage() {
   const current = REASON_DETAILS[reason];
 
   return (
-    <div className="pt-12 pb-20 md:pt-16 md:pb-28 bg-transparent text-[#2B3E2C] dark:text-[#F4FAF3] min-h-screen flex flex-col justify-center relative overflow-hidden">
+    <div className="pt-32 pb-24 md:pt-40 md:pb-36 bg-transparent text-[#2B3E2C] dark:text-[#F4FAF3] min-h-screen flex flex-col justify-center relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#4D694E]/15 dark:bg-[#82D173]/15 blur-[140px] pointer-events-none rounded-full" />
 
       <div className="max-w-xl mx-auto px-4 sm:px-6 text-center relative z-10 w-full">

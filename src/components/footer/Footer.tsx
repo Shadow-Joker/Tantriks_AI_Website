@@ -1,7 +1,6 @@
 import tantriksLogo from '../../assets/tantriks-hub-mark.svg';
 import { Mail, Phone } from 'lucide-react';
 import { Link } from '../../router/Link';
-import { ThemeToggle } from '../navigation/ThemeToggle';
 
 export function Footer() {
   return (
@@ -126,15 +125,11 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-[#4D694E]/20 dark:border-[#82D173]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-[#2B3E2C]/70 dark:text-[#F4FAF3]/70 font-mono text-[11px]">
+        <div className="pt-8 border-t border-[#4D694E]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-[#2B3E2C]/70 font-mono text-[11px]">
           <div>
             &copy; {new Date().getFullYear()} Tantriks AI. All rights reserved.
           </div>
-          <div className="flex items-center gap-2.5">
-            <span className="text-[11px] font-mono text-[#2B3E2C]/70 dark:text-[#F4FAF3]/70 font-semibold uppercase tracking-wider">Mode</span>
-            <ThemeToggle />
-          </div>
-          <div className="text-[#2B3E2C]/80 dark:text-[#F4FAF3]/80">
+          <div className="text-[#2B3E2C]/80">
             Intelligent software, automation, and AI agents.
           </div>
         </div>
