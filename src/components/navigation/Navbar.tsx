@@ -8,7 +8,12 @@ import { useRouter } from '../../router/Router';
 import { ThemeToggle } from './ThemeToggle';
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.scrollY > 20;
+    }
+    return false;
+  });
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('About');
   const { pathname, navigate } = useRouter();
@@ -22,7 +27,7 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -105,26 +110,37 @@ export function Navbar() {
             })}
           </div>
           {/* Desktop Right CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <ThemeToggle />
-
-            <div
-              ref={ctaRef}
-              onMouseMove={handleCtaMove}
-              onMouseLeave={handleCtaLeave}
-              className="relative"
-            >
-              <motion.button
-                onClick={() => handleNavClick('#contact')}
-                animate={{ x: ctaPos.x, y: ctaPos.y }}
-                transition={{ type: 'spring', stiffness: 200, damping: 15, mass: 0.1 }}
-                className="relative inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold text-[#FFF3D5] bg-gradient-to-r from-[#4D694E] to-[#364C37] hover:from-[#364C37] hover:to-[#2B3E2C] rounded-full shadow-[0_0_15px_rgba(77,105,78,0.35)] hover:shadow-[0_0_25px_rgba(77,105,78,0.45)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#4D694E]"
+          <AnimatePresence initial={false}>
+            {!scrolled && (
+              <motion.div
+                key="desktop-right-controls"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.2, ease: 'easeOut' }}
+                className="hidden md:flex items-center gap-3"
               >
-                <span>Partner With Us</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#FFF3D5]" />
-              </motion.button>
-            </div>
-          </div>
+                <ThemeToggle />
+
+                <div
+                  ref={ctaRef}
+                  onMouseMove={handleCtaMove}
+                  onMouseLeave={handleCtaLeave}
+                  className="relative"
+                >
+                  <motion.button
+                    onClick={() => handleNavClick('#contact')}
+                    animate={{ x: ctaPos.x, y: ctaPos.y }}
+                    transition={{ type: 'spring', stiffness: 200, damping: 15, mass: 0.1 }}
+                    className="relative inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold text-[#FFF3D5] bg-gradient-to-r from-[#4D694E] to-[#364C37] hover:from-[#364C37] hover:to-[#2B3E2C] rounded-full shadow-[0_0_15px_rgba(77,105,78,0.35)] hover:shadow-[0_0_25px_rgba(77,105,78,0.45)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#4D694E]"
+                  >
+                    <span>Partner With Us</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-[#FFF3D5]" />
+                  </motion.button>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {/* Mobile Right Controls */}
           <div className="md:hidden flex items-center gap-2">
